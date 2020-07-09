@@ -1,0 +1,39 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+    <div id="nz-content" class='content nz-clearfix padding-false'>
+        <div class='container page-full-width'>
+            <!-- post start -->
+            <div id="post-2057" class="post-2057 page type-page status-publish hentry">
+                <section class="page-content nz-clearfix">
+                    <div class="nz-section horizontal autoheight-false animate-false full-width-false "
+                         data-animation-speed="35000" data-parallax="false"
+                         style="padding-top:100px;padding-bottom:25px;">
+                        <div class="container">
+                            <div class="nz-row">
+                                <div class="col vc_col-sm-12 col12  col-animate-false" style="" data-effect="fade"
+                                     data-align="left">
+                                    <div class="col-inner" style="">
+                                        <h3 style="font-size: 26px;color: #333333;line-height: 36px;text-align: center;font-family:Montserrat;font-weight:400;font-style:normal"
+                                            class="vc_custom_heading">{{ directorio.nombre }}</h3>
+                                        <div class="sep-wrap center nz-clearfix">
+                                            <div class="nz-separator solid"
+                                                 style="border-bottom-color:#90c847;width:85px;border-bottom-width:2px;border-bottom-style:solid;margin-top:15px;margin-bottom:15px;">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div style="padding-left:150px;padding-right:150px;"
+                                             class="nz-column-text nz-clearfix no-padding text">
+                                            {{ directorio.datos_informativos|safe }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- post end -->
+        </div>
+    </div>
+{% endblock %}

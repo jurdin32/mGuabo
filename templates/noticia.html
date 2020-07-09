@@ -1,0 +1,104 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+    <div class="page-content-wrap">
+
+        <header class="rich-header blog-header version1 icon-dark" data-parallax="false" style="">
+            <div class="container nz-clearfix">
+
+                <h1 style="">Lo más reciente</h1>
+                <div style="color:#777777;" class="nz-breadcrumbs nz-clearfix"><a href="/">Inicio</a></div>
+            </div>
+        </header>
+
+        <div class="blog-layout-wrap medium sidebar-true" id="nz-target">
+            <div id="loop" class="loop">
+                <div class="container nz-clearfix">
+                    <section class="main-content left">
+                        <section class="content lazy blog-layout animation-false nz-clearfix">
+                            <div class="blog-post blog-post-1 nz-clearfix">
+                                {% for noticia in noticias %}
+                                    <article data-grid="ninzio_01"
+                                             class="post-1771 post type-post status-publish format-standard has-post-thumbnail hentry category-gardening tag-design tag-logo tag-painting tag-repairing tag-shopping"
+                                             id="post-1771">
+                                        <div class="nz-thumbnail"><img width="585" height="480"
+                                                                       src="/media/{{ noticia.imagen }}"
+                                                                       class="attachment-Focuson-Ninzio-Half size-Focuson-Ninzio-Half wp-post-image"
+                                                                       alt="blog9"/>
+                                            <div class="ninzio-overlay">
+                                                <a class="nz-overlay-before" title="View details"
+                                                   href="/noticias_/{{ noticia.id }}/{{ noticia.fecha|date:"m" }}/"></a>
+                                            </div>
+                                        </div>
+                                        <div class="post-body">
+                                            <div class="post-body-in">
+                                                <h3 class="post-title">
+                                                    <a href="/noticias_/{{ noticia.id }}/{{ noticia.fecha|date:"m" }}/" rel="bookmark">
+                                                        {{ noticia.titulo }}
+                                                    </a>
+                                                </h3>
+                                                <div class="postmeta">
+
+                                                    <div class="post-date-full">{{ noticia.fecha|date:"M d, Y" }}</div>
+                                                    <div class="post-category"><a
+                                                            rel="category tag">{{ noticia.visitas }} visitas</a></div>
+                                                </div>
+                                                <div class="post-excerpt">
+                                                    {{ noticia.descripcion_corta }}
+                                                </div>
+                                                <a class="post-more" href="/noticias_/{{ noticia.id }}/{{ noticia.fecha|date:"m" }}/">Leer más
+                                                    <span class="icon-uniE91B icon"></span><span
+                                                            class="screen-reader-text">
+                                                               {{ noticia.descripcion_corta }}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                {% endfor %}
+
+
+                            </div>
+                        </section>
+                        <nav class=ninzio-navigation>
+                            <ul class='page-numbers'>
+                                {% if noticias.has_previous %}
+                                    <li>
+                                        <a class='page-numbers' href="?page={{ noticias.previous_page_number }}">
+                                            <span class="icon icon-arrow-left8"></span></a>
+                                        </a>
+                                    </li>
+
+                                {% endif %}
+                                <li><span class='page-numbers current'>{{ noticias.number }} de {{ noticias.paginator.num_pages }}</span> </li>
+                                {% if noticias.has_next %}
+                                    <li><a class='page-numbers' href="?page={{ noticias.next_page_number }}">
+                                        <span class="icon icon-arrow-right8"></span></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </section>
+
+                    <aside class="sidebar">
+                        <aside class='blog-widget-area widget-area'>
+                            <div id="archives-2" class="widget widget_archive">
+                                <h6 class="widget_title">Archivos</h6>
+                                <ul>
+                                    <li>
+                                            <a href='/noticias/'>Todas</a>
+                                        </li>
+                                    {% for archivo in archivos %}
+                                        <li>
+                                            <a href='/noticias/{{ archivo|date:"m" }}/{{ archivo|date:"Y" }}/'>{{ archivo|date:"M Y" }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </aside>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

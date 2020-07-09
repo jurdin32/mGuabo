@@ -1,0 +1,72 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+           <div class="page-content-wrap">
+
+                <header class="rich-header page-header version1 icon-dark" data-parallax="false" style="">
+                    <div class="container nz-clearfix">
+                        <h1 style="">Futuros Proyectos</h1>
+                    </div>
+                </header>
+
+                <div id="nz-content" class='content nz-clearfix padding-false'>
+                    <div class='container page-full-width'>
+                        <!-- post start -->
+                        <div id="post-3150" class="post-3150 page type-page status-publish hentry">
+                            <section class="page-content nz-clearfix">
+                            <div class="nz-section horizontal autoheight-false animate-false full-width-false row-with-tabs" data-animation-speed="35000" data-parallax="false" style="background-color:#fafafa;padding-top:100px;padding-bottom:75px;">
+                                    <div class="container">
+                                        <div class="nz-row">
+                                            <div class="col vc_col-sm-6 col6  col-animate-false" style="" data-effect="fade" data-align="left">
+                                                <div class="col-inner" style=""><img class="aligncenter size-full wp-image-3089 " src="/media/{{ proyecto.imagen }}" alt="3089" width="549" height="604"></div>
+                                            </div>
+                                            <div class="col vc_col-sm-6 col6 no-padding col-animate-false" style="" data-effect="fade" data-align="left">
+                                                <div class="col-inner" style="">
+                                                    <div style="" class="nz-column-text nz-clearfix ">
+                                                        </p>
+                                                        <h3 style="font-size: 28px; line-height: 38px; text-align: left;"><span style="color: #0f3e68; font-weight: bold;">{{ proyecto.titulo|upper }}</span></h3>
+                                                        <p>
+                                                    </div>
+                                                    <div class='gap nz-clearfix' style='height:40px'>&nbsp;</div>
+                                                    <div class="nz-tabs  horizontal full-false">
+                                                        <div data-target="tab-mission" class="tab"><span class="icon-user7"></span>Descripción</div>
+                                                        <div id="tab-mission" class="tab-content" style="padding: 40px">
+                                                            <span style="line-height: 28px; font-size: 14px;">
+                                                                {{ proyecto.descripcion|safe }}
+                                                            </span>
+                                                        </div>
+                                                        {% if proyecto.requisitos %}
+                                                        <div data-target="tab-vision" class="tab"><span class="icon-paperplane2"></span>Qué necesito?</div>
+                                                        <div id="tab-vision" class="tab-content" style="padding: 40px">
+                                                            <span style="line-height: 28px; font-size: 14px;">
+                                                                Si deseas participar, esto es lo que necesitas:
+                                                                {{ proyecto.requisitos|safe }}
+                                                            </span>
+                                                        </div>
+                                                        {% endif %}
+                                                        {% if proyecto.fecha_inicio %}
+                                                        <div data-target="tab-support" class="tab"><span class="icon-support"></span>Fechas</div>
+                                                        <div id="tab-support" class="tab-content" style="padding: 40px">
+                                                            <span style="line-height: 28px; font-size: 14px;">
+                                                                Fechas tentativas:
+                                                                <ul>
+                                                                    <li><strong>Fecha de Inicio:</strong> {{ proyecto.fecha_inicio }}</li>
+                                                                    <li><strong>Fecha de Finalización:</strong> {{ proyecto.fehca_finalizacion }}</li>
+                                                                </ul>
+
+                                                            </span>
+                                                        </div>
+                                                        {% endif %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

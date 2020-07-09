@@ -1,0 +1,70 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+            <div class="page-content-wrap">
+
+                <header class="rich-header blog-header version1 icon-dark" data-parallax="false" style="">
+                    <div class="container nz-clearfix">
+
+                        <h1 style="">Conoce nuestro Cantón</h1>
+                        <div style="color:#777777;" class="nz-breadcrumbs nz-clearfix">
+                            <a href="/">Inicio</a>
+                            <a href="/turismo/"><span class="current">El Guabo</span></a>
+                            <span class="current">{{ turismo.descripcion }}</span>
+                        </div>
+                    </div>
+                </header>
+                <div class="blog-layout-wrap medium sidebar-false" id="nz-target">
+
+                    <div class="container">
+                        <section class='content nz-clearfix'>
+                            <section class="main-content left">
+                                <div class="blog-post">
+
+                                    <article data-grid="ninzio_01" class="post-195 post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-logo tag-repairing tag-shopping tag-smart" id="post-195">
+                                        {% if turismo.imagen %}
+                                            <div class="nz-thumbnail"><img width="870" height="570" src="/media/{{ turismo.imagen}}" class="attachment-full size-full wp-post-image" alt="blog1"  /></div>
+                                        {% endif %}
+                                        <div class="post-body">
+
+                                            <span class="sticky-ind"></span>
+
+                                            <h1 class="post-title">{{turismo.descripcion }}</h1>
+                                            <div class="single-post-content">
+                                                {{ turismo.pagina|safe }}
+                                             </div>
+
+                                            <div class="post-bottom nz-clearfix">
+                                                <div class="post-views">
+                                                    <span class="icon-eye4"></span> {{turismo.visitas}} </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                            <aside class="sidebar">
+                                <aside class='blog-widget-area-single widget-area'>
+                                    <div id="nz-recent-posts-3" class="widget widget_nz_recent_entries">
+                                        <h6 class="widget_title">Conoce Más</h6>
+                                        <ul>
+                                            {% for zona in zonas %}
+                                            <li class="post">
+                                                <div class="post-date-custom" style="padding: 0px">
+                                                    <img src="/media/{{zona.thumbail}}" alt="">
+                                                </div>
+                                                <div class="post-body">
+                                                    <a class="post-title" href="/turismo/zona/{{zona.id}}">{{zona.descripcion|linebreaksbr}}</a>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </aside>
+
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+{% endblock %}

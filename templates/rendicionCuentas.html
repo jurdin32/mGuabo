@@ -1,0 +1,108 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div id="nz-content" class='content nz-clearfix padding-false'>
+    <div class='container page-full-width'>
+        <!-- post start -->
+        <div id="post-2043" class="post-2043 page type-page status-publish hentry">
+            <section class="page-content nz-clearfix">
+                <div class="nz-section horizontal autoheight-false animate-false full-width-false "
+                     data-animation-speed="35000" data-parallax="false" style="padding-top:25px;padding-bottom:25px;">
+                    <div class="container">
+                        <div class="nz-row">
+                            <div class="col vc_col-sm-12 col12  col-animate-false" style="" data-effect="fade"
+                                 data-align="left">
+                                <div class="col-inner" style="">
+                                    {% for anio in anios %}
+                                        <a class="button button-normal default full-false medium rounded icon-true animate-true anim-type-reverse hover-fill" href="/cuentas/{{ anio.periodo }}" target="_self">
+                                            <span class="btn-icon icon-checkmark"></span>
+                                            <span class="txt">{{ anio.periodo }}</span>
+                                        </a>
+                                    {% endfor %}
+
+                                    <div class="sep-wrap left nz-clearfix">
+                                        <div class="nz-separator solid"
+                                             style="border-bottom-color:#eeeeee;width:100%;border-bottom-style:solid;margin-top:10px;margin-bottom:75px;">
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                    <div class="nz-tabs  vertical full-false">
+                                            <div data-target="tab-cuentas" class="tab">Proceso de rendicion de Cuentas</div>
+                                            <div id="tab-cuentas" class="tab-content">
+                                                <span style="line-height: 24px;">
+                                                        <div class="nz-content-box nz-clearfix animate-none" data-columns="1" data-animate="true">
+                                                            <div id="nz-box-1" class="  back_active nz-box animate-item">
+                                                                <div class="nz-box-wrap">
+                                                                   <h3><span style="font-size: 14px; line-height: 26px;">Proceso de rendicion de Cuentas</span></h3>
+                                                                        <p>{{ cuentas.proceso|safe }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </span>
+                                            </div>
+
+                                            <div data-target="tab-preguntas" class="tab">Preguntas</div>
+                                            <div id="tab-preguntas" class="tab-content">
+                                                <span style="line-height: 24px;">
+                                                        <div class="nz-content-box nz-clearfix animate-none" data-columns="1" data-animate="true">
+                                                                <div id="nz-box-1" class="  back_active nz-box animate-item">
+                                                                    <div class="nz-box-wrap">
+                                                                        <div class="box-icon-wrap">
+                                                                            <div class="box-icon icon-file-pdf"></div>
+                                                                        </div>
+                                                                        <div class="box-data">
+
+                                                                            <h3><span style="font-size: 14px; line-height: 26px;">Preguntas realizadas por la Ciudadanía</span></h3>
+                                                                            <p><span style="color: #777777;">
+                                                                            </span><a class="box-more" href="/media/{{cuentas.preguntas}}">Descargar Archivo<span class="icon-arrow-right2"></span></a></p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                </span>
+                                            </div>
+                                            <div data-target="tab-cuentas" class="tab">Documentos Habilitantes</div>
+                                            <div id="tab-cuentas" class="tab-content">
+                                                <span style="line-height: 24px;">
+                                                        <div class="nz-content-box nz-clearfix animate-none" data-columns="1" data-animate="true">
+                                                            <div id="nz-box-1" class="  back_active nz-box animate-item">
+                                                                <div class="nz-box-wrap">
+                                                                   <h3><span style="font-size: 14px; line-height: 26px;">Documentos Habilitantes</span></h3>
+                                                                        <table class="nz-table" style="height: 165px;" width="100%">
+                                                                            <thead style="color: #90c847;">
+                                                                                <tr>
+                                                                                    <th>Titulo</th>
+                                                                                    <th>Archivo de Registro</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>Acta de la rendición de cuentas.</td>
+                                                                                    <td><a href="/media/{{ cuentas.acta }}"><span class="icon icon-file-pdf"></span> Documento</a></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Invitación.</td>
+                                                                                    <td><a href="/media/{{ cuentas.invitacion }}"><span class="icon icon-file-pdf"></span> Documento</a></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Registro de asistencia rendición de cuentas.</td>
+                                                                                    <td><a href="/media/{{ cuentas.registro_asistencia }}"> <span class="icon icon-file-pdf"></span> Documento</a></td>
+                                                                                </tr>
+                                                                        </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </span>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        <!-- post end -->
+    </div>
+</div>
+{% endblock %}

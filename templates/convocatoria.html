@@ -1,0 +1,70 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+            <div class="page-content-wrap">
+
+                <header class="rich-header blog-header version1 icon-dark" data-parallax="false" style="">
+                    <div class="container nz-clearfix">
+
+                        <h1 style="">Convocatorias</h1>
+                        <div style="color:#777777;" class="nz-breadcrumbs nz-clearfix">
+                            <a href="/">Inicio</a>
+                            <a href="/convocatorias/"><span class="current">Convocatorias</span></a>
+                        </div>
+                    </div>
+                </header>
+                <div class="blog-layout-wrap medium sidebar-false" id="nz-target">
+
+                    <div class="container">
+                        <section class='content nz-clearfix'>
+                            <section class="main-content left">
+                                <div class="blog-post">
+
+                                    <article data-grid="ninzio_01" class="post-195 post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-logo tag-repairing tag-shopping tag-smart" id="post-195">
+                                        {% if convocatoria.imagen %}
+                                            <div class="nz-thumbnail"><img width="870" height="570" src="/media/{{ convocatoria.imagen}}" class="attachment-full size-full wp-post-image" alt="blog1"  /></div>
+                                        {% endif %}
+                                        <div class="post-body"  style="padding-top: 20px">
+
+                                            <span class="sticky-ind"></span>
+
+                                            <h1 class="post-title">{{convocatoria.descripcion }}</h1>
+                                            <div class="single-post-content">
+                                                {{ convocatoria.pagina|safe }}
+                                             </div>
+
+                                            <div class="post-bottom nz-clearfix">
+                                                <div class="post-views">
+                                                    <span class="icon-eye4"></span> {{convocatoria.visitas}} </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                            <aside class="sidebar">
+                                <aside class='blog-widget-area-single widget-area'>
+                                    <div id="nz-recent-posts-3" class="widget widget_nz_recent_entries">
+                                        <h6 class="widget_title">Ver más Convocatorias</h6>
+                                        <ul>
+                                            {% for convocatoria in convocatorias %}
+                                            <li class="post">
+                                                <div class="post-date-custom" style="padding: 0px">
+                                                    <span>{{ convocatoria.fecha|date:"d" }}</span>
+                                                    <span>{{ convocatoria.fecha|date:"M" }}</span>
+                                                </div>
+                                                <div class="post-body">
+                                                    <a class="post-title" title="{{ convocatoria.descripcion}}" href="/convocatorias/{{convocatoria.id}}">{{convocatoria.descripcion|truncatechars:50}}</a>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </aside>
+
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+{% endblock %}

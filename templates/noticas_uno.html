@@ -1,0 +1,79 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+    <div class="page-content-wrap">
+
+        <header class="rich-header blog-header version1 icon-dark" data-parallax="false" style="">
+            <div class="container nz-clearfix">
+
+                <h1 style="">{{ noticia.titulo|upper }}</h1>
+                <div style="color:#777777;" class="nz-breadcrumbs nz-clearfix">
+                    <a href="/">Inicio</a>
+                    <a href="/noticias/"><span class="current">Noticias</span></a>
+                </div>
+            </div>
+        </header>
+        <div class="blog-layout-wrap medium sidebar-false" id="nz-target">
+
+            <div class="container">
+                <section class='content nz-clearfix'>
+                    <section class="main-content left">
+                        <div class="blog-post">
+
+                            <article data-grid="ninzio_01"
+                                     class="post-195 post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-logo tag-repairing tag-shopping tag-smart"
+                                     id="post-195">
+                                {% if noticia.banner %}
+                                    <div class="nz-thumbnail"><img width="870" height="570"
+                                                                   src="/media/{{ noticia.banner }}"
+                                                                   class="attachment-full size-full wp-post-image"
+                                                                   alt="blog1"/></div>
+                                {% endif %}
+                                <div class="post-body" style="padding-top: 20px">
+                                    <span class="sticky-ind"></span>
+                                    <div id="nz-testimonials-1" class="nz-testimonials" style="opacity: 1;">
+                                        <div class="owl-wrapper">
+                                            <div class="testimonial nz-clearfix">
+                                                <div class="text">{{ noticia.descripcion_corta }}
+                                                    <div class="post-views">
+                                                        <span class="icon-eye4"></span> {{ noticia.visitas }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-post-content" style="padding-top: 20px">
+                                        {{ noticia.pagina|safe }}
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <aside class="sidebar">
+                        <aside class='blog-widget-area-single widget-area'>
+                            <div id="nz-recent-posts-3" class="widget widget_nz_recent_entries">
+                                <h6 class="widget_title">Ver más</h6>
+                                <ul>
+                                    {% for noticia in noticias %}
+                                        <li class="post">
+                                            <div class="post-date-custom" style="padding: 0px">
+                                                <span>{{ noticia.fecha|date:"d" }}</span>
+                                                <span>{{ noticia.fecha|date:"M" }}</span>
+                                            </div>
+                                            <div class="post-body">
+                                                <a class="post-title" title="{{ noticia.descripcion_corta }}"
+                                                   href="/noticias_/{{ noticia.id }}/{{ noticia.fecha|date:"m" }}/">{{ noticia.descripcion_corta|truncatechars:50 }}</a>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </aside>
+                    </aside>
+
+                </section>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

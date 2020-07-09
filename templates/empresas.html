@@ -1,0 +1,61 @@
+{% extends 'home-7.html' %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+            <div class="page-content-wrap">
+
+                <header class="rich-header blog-header version1 icon-dark" data-parallax="false" style="">
+                    <div class="container nz-clearfix">
+
+                        <h1 style="">{{empresa.nombre|upper}}</h1>
+                        <div style="color:#777777;" class="nz-breadcrumbs nz-clearfix">
+                            <a href="/">Inicio</a>
+                            <span class="current">{{ empresa.nombre }}</span>
+                        </div>
+                    </div>
+                </header>
+                <div class="blog-layout-wrap medium sidebar-false" id="nz-target">
+
+                    <div class="container">
+                        <section class='content nz-clearfix'>
+                            <section class="main-content left">
+                                <div class="blog-post">
+
+                                    <article data-grid="ninzio_01" class="post-195 post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-logo tag-repairing tag-shopping tag-smart" id="post-195">
+                                        {% if empresa.imagen %}
+                                            <div class="nz-thumbnail"><img width="870" height="570" src="/media/{{ empresa.imagen}}" class="attachment-full size-full wp-post-image" alt="blog1"  /></div>
+                                        {% endif %}
+                                        <div class="post-body" style="padding-top: 20px">
+                                            <h1 class="post-title">{{empresa.descripcion }}</h1>
+                                            <div class="single-post-content">
+                                                {{ empresa.pagina|safe }}
+                                             </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                            <aside class="sidebar">
+                                <aside class='blog-widget-area-single widget-area'>
+                                    <div id="nz-recent-posts-3" class="widget widget_nz_recent_entries">
+                                        <h6 class="widget_title">Otras Empresas</h6>
+                                        <ul>
+                                            {% for empresa in empresas %}
+                                            <li class="post">
+                                                <div class="post-date-custom" style="padding: 0px">
+                                                    <img src="/media/{{empresa.imagen}}" alt="">
+                                                </div>
+                                                <div class="post-body">
+                                                    <a class="post-title" href="/empresa/{{ empresa.id }}">{{empresa.nombre|linebreaksbr}}</a>
+                                                </div>
+                                                <span class=""></span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </aside>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+{% endblock %}
